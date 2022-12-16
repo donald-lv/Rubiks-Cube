@@ -1,2 +1,2 @@
 # rubiks-cube
- a rubiks functioning rubik's cube
+a functioning rubik's cube
