@@ -4,30 +4,8 @@ import './index.css';
 import Cube from './rubiks-cube.js';
 import reportWebVitals from './reportWebVitals';
 
-/*
-function App(props) {
-    return (<div>
-      <h1> hfghjg </h1>
-    </div>);
-}
-*/
-
-class App extends React.Component {
-    render() {
-        return (<div id="app">
-        <h1> { this.props.thing[0] } </h1>
-        </div>);
-    };
-}
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    /*
-    <React.Fragment>
-        <App thing={ ["hi", "there"] } />
-        <App thing={ ["hey", "there"] } />
-    </React.Fragment>
-    */
     <Cube />
 );
 

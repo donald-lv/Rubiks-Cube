@@ -538,47 +538,6 @@ class Cube extends React.Component {
 
     render() {
         return <div className="rubiks-cube">
-            <form>
-                <input 
-                    id="face-index" placeholder="face index" name="face index"
-                    onInput={
-                        () => {
-                            // see above comments?
-                            this.setState({ 
-                                faceIndex: parseInt(document.getElementById("face-index").value) 
-                            });
-                        }
-                    }
-                />
-
-                <input 
-                    id="depth" placeholder="depth" name="depth"
-                    onInput={
-                        () => {
-                            // maybe there is better way? 
-                            // somehowe refer to parent element rather than searching dom
-                            this.setState({ 
-                                depth: parseInt(document.getElementById("depth").value) 
-                            });
-                        }
-                    }
-                />
-
-                <input 
-                    id="direction" placeholder="direction" name="direction"
-                    onInput={
-                        () => {
-                            // see above comment?
-                            this.setState({ 
-                                direction: parseInt(document.getElementById("direction").value) 
-                            });
-                        }
-                    }       
-                />
-                
-
-            </form>
-
             <div>
                 <button
                     onClick = {
