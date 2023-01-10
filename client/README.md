@@ -1,5 +1,4 @@
 # rubiks-cube
-A functioning rubik's cube visualized with a net of the cube
-a test project using react
+Built in React.
 
-can be scaled to NxNxN
+A functioning rubik's cube visualized with a net of the cube. Capable of being scaled to different sized than 3x3x3.
