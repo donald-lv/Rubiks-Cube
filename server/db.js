@@ -1,7 +1,7 @@
-const Pool = require("ps").Pool;
+const Pool = require("pg").Pool;
 const fs = require("node:fs");
 
-const { user, password, port } = JSON.parse(fs.readfilesync("config.json"));
+const { user, password, port } = JSON.parse(fs.readFileSync("config.json"));
 
 const pool = new Pool({
     user: user,
