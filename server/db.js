@@ -1,5 +1,5 @@
-const Pool = requires("ps").Pool;
-const fs = requires("node:fs");
+const Pool = require("ps").Pool;
+const fs = require("node:fs");
 
 const { user, password, port } = JSON.parse(fs.readfilesync("config.json"));
 
