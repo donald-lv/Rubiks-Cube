@@ -115,41 +115,39 @@ function CubeGridFace(props) {
     // inline style here for adjustability, may be better to use variables...
     // display: grid obtained from css
     let display = 
-    <div id="test">
-        <div className="cube-face"   
-            style={ {
-                gridTemplateRows: "repeat(" + cubeSize + ", 1fr)",
-                gridTemplateColumns: "repeat(" + cubeSize + ", 1fr)"
-            } }
-        >
-        {
-            props.face.map(
-                (row, rIndex) => (
-                    row.map(
-                        (squareColour, cIndex) => (
-                            
-                            <CubeGridSquare 
-                                color={ colors[squareColour] }
+    <div className="cube-face"   
+        style={ {
+            gridTemplateRows: "repeat(" + cubeSize + ", 1fr)",
+            gridTemplateColumns: "repeat(" + cubeSize + ", 1fr)"
+        } }
+    >
+    {
+        props.face.map(
+            (row, rIndex) => (
+                row.map(
+                    (squareColour, cIndex) => (
+                        
+                        <CubeGridSquare 
+                            color={ colors[squareColour] }
 
-                                mouseHeld={ props.mouseHeld }
+                            mouseHeld={ props.mouseHeld }
 
-                                mouseHold={ 
-                                    (mousePos) => {
-                                        console.log(`square at ${rIndex} ${cIndex} triggered`);
-                                        // pass along the mousePos given,
-                                        // provide the holdCoord row and column
-                                        props.mouseHold(mousePos, { rIndex: rIndex, cIndex: cIndex });
-                                    }
+                            mouseHold={ 
+                                (mousePos) => {
+                                    console.log(`square at ${rIndex} ${cIndex} triggered`);
+                                    // pass along the mousePos given,
+                                    // provide the holdCoord row and column
+                                    props.mouseHold(mousePos, { rIndex: rIndex, cIndex: cIndex });
                                 }
-                                
-                                key={ cIndex }
-                            />
-                        )
+                            }
+                            
+                            key={ cIndex }
+                        />
                     )
                 )
             )
-        }
-        </div>
+        )
+    }
     </div>;
 
     return (
