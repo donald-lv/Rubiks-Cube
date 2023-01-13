@@ -1,85 +1,26 @@
 import React from 'react';
 import './rubiks-cube.css';
+import CubeConsts from './cubeConsts';
 
-// test css variable changing
-/*
-    var r = document.querySelector(':root');
-    rt.style.setProperty("--some-color", "red");
+/* 
+ABOUT DIRECTIONS:
+  
+  directions are:
+  0: up
+  1: right
+  2: down
+  3: left
 */
 
 // CUBE SIZE
-const cubeSize = 3;
-
-// goofy ah css variables
-// let cubeStyle = document.querySelector("body");
-// console.log(cubeStyle);
-
-// cubeStyle.style.setProperty("--cube-size", cubeSize);
-
-
-/*
-    todo: 
-    change the holding so that you can only hold on one square:
-    when you hold down on a square and drag across others, you trigger the mouseDown event on them
-    
-    a fix: put the state inside the grid, get it to change when holding, relay it back down to the squares
-
-fixed    fix rotating cubesize 3 depth 2 direction 0 face 2 making a wrong face rotation
-         fix is probably in the rotate function, in the if statement
-*/
-
+const cubeSize = CubeConsts.defaultCubeSize;
 
 // COLORS
-const colors = [
-    "#eae032", // yellow
-    "#F82039", // red
-    "#00E05F", // green
-    
-    "#FFA810",  //orange
-    "#D0D0E0", // white
-    "#0068F0", // blue
+const colors = CubeConsts.defaultColors;
 
-    "#000000", // black
-];
-
-// directions are:
-//  0: up
-//  1: right
-//  2: down
-//  3: left
-
-// which faces are adjacent to which and their relative orientation
-
-// this data could be stored in a 6x6 2d array but this has faster 
-//   access since its laid out in a more useful way and its easier? to read (debatable)
-const cubeInfo = [
-    // face 0 is adjacent to faces 5, 3, 2, 1 in that order from top, right, bottom, left
-    // 5 shares 0's top row, 3 shares 0's right, 2 - 0's bot, 1 - 0's left
-    // 
-    // face 1's adjacent edge is its top row: (0,0) (1,0) (2, n) etc.
-    // face 2, 3 also adjacent edge top row
-    // face 5 shares its bottom row: (0, n) (1, n) (2, n) etc. 
-    [{ face: 5, orient: 2 }, { face: 3, orient: 0 }, { face: 2, orient: 0 }, { face: 1, orient: 0 }],
-    [{ face: 0, orient: 3 }, { face: 2, orient: 3 }, { face: 4, orient: 3 }, { face: 5, orient: 3 }],
-    
-    [{ face: 0, orient: 2 }, { face: 3, orient: 3 }, { face: 4, orient: 0 }, { face: 1, orient: 1 }],
-    [{ face: 0, orient: 1 }, { face: 5, orient: 1 }, { face: 4, orient: 1 }, { face: 2, orient: 1 }],
-    
-    [{ face: 2, orient: 2 }, { face: 3, orient: 2 }, { face: 5, orient: 0 }, { face: 1, orient: 2 }],
-    [{ face: 4, orient: 2 }, { face: 3, orient: 1 }, { face: 0, orient: 0 }, { face: 1, orient: 3 }],
-];
-
+// MOUSE DRAG LENGTH (before turning sides)
 const dragLength = 10;
 
-// random stolen function for sleeping stolen from the internet
-//   please replace with await + async + setTimeout() (somehow, idk)
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
 
 function CubeGridSquare(props) {
     /* 
@@ -137,6 +78,7 @@ function CubeGridFace(props) {
                                     console.log(`square at ${rIndex} ${cIndex} triggered`);
                                     // pass along the mousePos given,
                                     // provide the holdCoord row and column
+
                                     props.mouseHold(mousePos, { rIndex: rIndex, cIndex: cIndex });
                                 }
                             }
@@ -292,6 +234,29 @@ class CubeGrid extends React.Component {
     }
 }
 
+// this function is outside Cube
+function genDefaultCube(size) {
+    // 6 faced cube
+    //   each face is 3 rows
+    //   each row is 3 elements
+    let cube = [[[]]];
+
+    for (let face = 0; face < 6; ++face) {
+        cube[face] = [[]];
+        for (let row = 0; row < size; ++row) {
+            cube[face][row] = [];
+            for (let col = 0; col < size; ++col) {
+                // faces correspond to colours: 
+                //   0 is white, etc, see colors array of objects
+                cube[face][row][col] = face;
+                // cube[face][row][col] = Math.floor(6 * Math.random());
+            }
+        }
+    }
+
+    return cube;
+}
+
 class Cube extends React.Component {
     constructor(props) {
         super(props);
@@ -299,24 +264,10 @@ class Cube extends React.Component {
         // 6 faced cube
         //   each face is 3 rows
         //   each row is 3 elements
-        let cube = [[[]]];
-
-        for (let face = 0; face < 6; ++face) {
-            cube[face] = [[]];
-            for (let row = 0; row < cubeSize; ++row) {
-                cube[face][row] = [];
-                for (let col = 0; col < cubeSize; ++col) {
-                    // faces correspond to colours: 
-                    //   0 is white, etc, see colors array of objects
-                    cube[face][row][col] = face;
-                    // cube[face][row][col] = Math.floor(6 * Math.random());
-                }
-            }
-        }
+        let cube = genDefaultCube(cubeSize);
 
         this.state = {
             cube: cube,
-            original: this.copyCube(cube),
             // debug properties
             depth: 0,
             direction: 0,
@@ -325,15 +276,39 @@ class Cube extends React.Component {
         }
     }
 
+
+    // generates a reset cube of given size. one colour per face
+    genDefaultCube(size) {
+        // 6 faced cube
+        //   each face is 3 rows
+        //   each row is 3 elements
+        let cube = [[[]]];
+    
+        for (let face = 0; face < 6; ++face) {
+            cube[face] = [[]];
+            for (let row = 0; row < size; ++row) {
+                cube[face][row] = [];
+                for (let col = 0; col < size; ++col) {
+                    // faces correspond to colours: 
+                    //   0 is white, etc, see colors array of objects
+                    cube[face][row][col] = face;
+                    // cube[face][row][col] = Math.floor(6 * Math.random());
+                }
+            }
+        }
+    
+        return cube;
+    }
+
+    // deep copies another cube
     copyCube(cube) {
-        return cube.map( (face) => 
+        return Cube.state.cube.map( (face) => 
             face.map( (row) => row.slice() )
         );
     }
 
     reset() {
-        console.log(this.state.original);
-        this.setState({ cube: this.copyCube(this.state.original) });
+        this.setState({ cube: genDefaultCube(cubeSize) });
     }
 
     // modifies face to have newCol in the cIndexth column
@@ -481,7 +456,7 @@ class Cube extends React.Component {
         // then ends back on first, performs code on first as well
         for (let counter = 0; counter < 4; ++counter) {            
             // change faces and directions
-            let nextFaceInfo = cubeInfo[faceIndex][direction];
+            let nextFaceInfo =   CubeConsts.cubeInfo[faceIndex][direction];
             
             // flip the direction: instead of the direction of the side we just came from, 
             //   its now the direction of side we will be going to
@@ -505,9 +480,9 @@ class Cube extends React.Component {
         // if the side rotated is furthest in or out (if on either side)
         // rotate the corresponding face
         if (depth === 0) {
-            this.rotateFace(cube[cubeInfo[faceIndex][this.rotDirection(direction, -1)].face], -1);
+            this.rotateFace(cube[  CubeConsts.cubeInfo[faceIndex][this.rotDirection(direction, -1)].face], -1);
         } else if (depth === (cubeSize - 1)) {
-            this.rotateFace(cube[cubeInfo[faceIndex][this.rotDirection(direction, 1)].face], 1);
+            this.rotateFace(cube[  CubeConsts.cubeInfo[faceIndex][this.rotDirection(direction, 1)].face], 1);
         }
     }
 
@@ -537,10 +512,9 @@ class Cube extends React.Component {
     render() {
         return <div className="rubiks-cube">
             <div>
-                <button
+                <button id="shuffle"
                     onClick = {
-                        () => {
-                            console.log("rotating face");
+                        function () {
                             let newCube = this.state.cube.slice();
                             // newCube[0] = 
                             let faceIndex, depth, direction = 0;
@@ -567,52 +541,20 @@ class Cube extends React.Component {
                     shuffle
                 </button>
 
-                <button
+                <button id="reset"
                     onClick = {
                         () => {
-                            console.log("reset");
+                            console.log("cube reset");
                             this.reset();
                         }
                     } >
                     reset
                 </button>
-
-                <button
-                    onClick = {
-                        () => {
-                            let newCube = this.state.cube.slice();
-
-                            let moves = [ 
-                                {face: 1, depth: 2, dir: 2},
-                                {face: 4, depth: 1, dir: 3},
-                                {face: 0, depth: 2, dir: 2},
-                                {face: 2, depth: 1, dir: 3},
-                                {face: 5, depth: 2, dir: 3},
-                                {face: 0, depth: 1, dir: 2},
-                                {face: 3, depth: 0, dir: 2},
-                                {face: 2, depth: 2, dir: 3},
-                                {face: 3, depth: 1, dir: 3},
-                                {face: 4, depth: 0, dir: 1},
-                            ]
-
-                            let move = moves[this.state.move];
-                            this.rotate(newCube, move.face, move.depth, move.dir);
-                            
-                            this.setState(
-                                { cube: newCube,
-                                  move: this.state.move + 1  
-                                }
-                            );
-                        }
-                    } >
-                    do sequence
-                </button>
             </div>
             
             <CubeGrid cube={ this.state.cube } doRotate={ (faceIndex, depth, direction) => { this.doRotate(faceIndex, depth, direction) } } />
         </div>;
-        //this.colorTest();
     }
 }
 
-export default Cube
+export default Cube;
