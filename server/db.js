@@ -7,8 +7,7 @@ const pool = new Pool({
     user: user,
     password: password,
     host: "localhost",
-    port: port,
-    database: "rubiks_cube"
+    database: "rubikscube"
 });
 
 module.exports = pool;
