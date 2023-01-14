@@ -1,8 +1,9 @@
-CREATE DATABASE rubiks_cube;
+CREATE DATABASE rubikscube;
 
-CREATE TABLE time_submissions(
+CREATE TABLE IF NOT EXISTS time_submissions(
     id SERIAL PRIMARY KEY,
-    submission_time TIMESTAMP(2) DEFAULT NOW(),
-    start_date TIMESTAMP(4),
-    end_date TIMESTAMP(4)
+    submission_time TIMESTAMP(0) NOT NULL DEFAULT NOW(),
+    start_time TIMESTAMP(4) NOT NULL,
+    end_time TIMESTAMP(4) NOT NULL,
+    CHECK (end_time > start_time)
 );
