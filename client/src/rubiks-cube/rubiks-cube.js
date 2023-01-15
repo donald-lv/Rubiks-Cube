@@ -494,20 +494,6 @@ class Cube extends React.Component {
             { cube: newCube }
         );
     }
-    
-    // legacy test for colours, returns jsx
-    colorTest() {
-        return (            
-            <React.Fragment>    
-                <CubeGridSquare color="green" />
-                <CubeGridSquare color="yellow" />
-                <CubeGridSquare color="orange" />
-                <CubeGridSquare color="red" />
-                <CubeGridSquare color="white" />
-                <CubeGridSquare color="blue" />
-            </React.Fragment>
-        );
-    }
 
     render() {
         return <div className="rubiks-cube">

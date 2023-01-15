@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-import Cube from './rubiks-cube.js';
+import Cube from './rubiks-cube/rubiks-cube.js';
 import LeaderBoard from './leaderboard/leaderboard.js';
 
 import reportWebVitals from './reportWebVitals';
