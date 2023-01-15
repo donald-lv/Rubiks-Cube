@@ -1,9 +1,6 @@
 :root {
-    --some-color: #eae032;
-    /*background-color: var(--some-color);*/
-
     /* cube properties */
-    --cube-size: 0;
+    --cube-width: 3;
     --cube-face-size: 7em; 
     --cube-grid-gap: 0.1em;
 }
@@ -45,12 +42,12 @@
 
     margin: auto;
     border-radius: 3em;
-    background-color: #404050;
+    background-color: var(--bg-sub-color);
 
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
 
-    width: calc(3 * var(--cube-face-size) + 2 * var(--cube-grid-gap));
+    width: calc(var(--cube-width) * var(--cube-face-size) + (var(--cube-width) - 1) * var(--cube-grid-gap));
     
     padding: 2em;
 
