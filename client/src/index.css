@@ -1,4 +1,19 @@
 
+
+:root {
+  --bg-main-color: #001324;
+  --bg-sub-color: #032d4a;
+
+  --highlight-color: #51e0a7;
+  --elem-color: #FFFFFF;
+
+
+  /* --normal-text-font: ; */
+
+  background-color: var(--bg-main-color);
+  color: var(--elem-color);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,7 +21,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #001334;
 }
 
 code {
@@ -14,7 +28,21 @@ code {
     monospace;
 }
 
-#app {
-  background-color: #FFFF00;
-  color: #FFFFFF;
+table, thead {
+  border-color: var(--highlight-color);
+  border-style: solid;
 }
+
+table {
+  margin-right: 10%;
+  margin-left: 10%;
+
+  width: 80%;
+  
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
