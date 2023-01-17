@@ -1,0 +1,11 @@
+h1.unset-timer {
+    color: gray;
+}
+
+h1.running-timer {
+    color: var(--complement-color);
+}
+
+h1.finished-timer {
+    color: var(--highlight-color);
+}

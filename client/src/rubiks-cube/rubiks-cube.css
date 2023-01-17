@@ -42,7 +42,7 @@
 
     margin: auto;
     border-radius: 3em;
-    background-color: var(--bg-sub-color);
+    background-color: var(--sub-bg-color);
 
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
