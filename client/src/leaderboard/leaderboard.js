@@ -50,13 +50,12 @@ function LeaderBoard(props) {
 
     return(
         <div className="leaderboard-container">
-            <table clclassNameass="leaderboard-table">
+            <table className="leaderboard-table">
                 <thead>
                     <tr>
                         <th>Place</th>
                         <th>User Name</th>
                         <th>Time</th>
-                        <th>Move Count</th>
                         <th>Submission Date</th>
                     </tr>
                 </thead>
@@ -68,7 +67,6 @@ function LeaderBoard(props) {
                                 <td>{ index + 1 }</td>
                                 <td>{ item.user_name }</td>
                                 <td>{ twoDatesTimeToString(item.start_time, item.end_time) }</td>
-                                <td>{ item.move_count }</td>
                                 <td>{ new Date(Date.parse(item.submission_time)).toDateString() }</td>
                             </tr>
                         ); } )

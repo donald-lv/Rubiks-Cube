@@ -33,8 +33,8 @@ app.post('/leaderboard', async (req, res) => {
     try {
         const { start_time, end_time, user_name, move_count } = req.body;
 
-        const post = await pool.query("INSERT INTO time_submissions (start_time, end_time, user_name, move_count) VALUES ($1, $2, $3, $4);", 
-                                      [ start_time, end_time, user_name, move_count ]);
+        const post = await pool.query("INSERT INTO time_submissions (start_time, end_time, user_name) VALUES ($1, $2, $3);", 
+                                      [ start_time, end_time, user_name ]);
         // INSERT INTO time_submissions (start_time, end_time) VALUES ('01-01-2022 00:00:00', '02-01-2022 00:00:01');
 
         res.json(post);
