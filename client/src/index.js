@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import './index.css';
 
-import Cube from './rubiks-cube/rubiks-cube.js';
+import CubeWidget from './rubiks-cube/rubiks-cube-widget.js';
 import LeaderBoard from './leaderboard/leaderboard.js';
 
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <>
-        <Cube />
+        <CubeWidget />
         <LeaderBoard />
     </>
 
