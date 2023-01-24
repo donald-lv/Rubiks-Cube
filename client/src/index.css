@@ -1,53 +1,64 @@
-
-
 :root {
-  --bg-color: #001324;
-  --sub-bg-color: #032d4a;
+    --bg-color: #001324;
+    --sub-bg-color: #032d4a;
 
-  --highlight-color: #51e0a7;
-  --sub-hightlight-color: #60ad81;
-  
-  --complement-color: #f7c625;
-  --sub-complement-color: #b6951f;
+    --highlight-color: #5cffbe;
+    --sub-hightlight-color: #3c9c66;
+    
+    --complement-color: #ffa220;
+    --sub-complement-color: #c36f01;
 
-  --elem-color: #FFFFFF;
+    --fg-color: #FFFFFF;
 
 
-  /* --normal-text-font: ; */
+    /* --normal-text-font: ; */
 
-  background-color: var(--bg-color);
-  color: var(--elem-color);
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+}
+
+
+::selection {
+    background-color: var( --sub-hightlight-color);
+    color: white;
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 table, thead {
-  border-color: var(--highlight-color);
-  border-style: solid;
+    border-color: var(--highlight-color);
+    border-style: solid;
 }
 
 table {
-  margin-right: 10%;
-  margin-left: 10%;
 
-  width: 80%;
-  
-  border-collapse: collapse;
+    width: 100%;
+    
+    border-collapse: collapse;
 }
 
 th {
-  text-align: left;
+    text-align: left;
 }
 
+
+/* non generics */
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    padding-right: 15%;
+}
