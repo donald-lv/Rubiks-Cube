@@ -127,7 +127,7 @@ function CubeWidget(props) {
                
             </div>
 
-            <Cube id={ cubeId } size={ 3 } />
+            <Cube id={ cubeId } size={ 4 } />
             
             <Timer 
                 id={ timerId }

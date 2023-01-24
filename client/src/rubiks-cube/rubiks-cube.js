@@ -53,12 +53,7 @@ function CubeGridFace(props) {
     // inline style here for adjustability, may be better to use variables...
     // display: grid obtained from css
     let display = 
-    <div className="cube-face"   
-        style={ {
-            gridTemplateRows: "repeat(" + props.size + ", 1fr)",
-            gridTemplateColumns: "repeat(" + props.size + ", 1fr)"
-        } }
-    >
+    <div className="cube-face">
     {
         props.face.map(
             (row, rIndex) => (
@@ -210,6 +205,9 @@ class CubeGrid extends React.Component {
         return (
             // make a cross shape like in the comment
             <div className="cube-grid">
+                {
+                    /*  */
+                }
                 <div></div>
                 { this.makeCubeGridFace(0) }
                 <div></div>
@@ -267,6 +265,9 @@ class Cube extends React.Component {
         document.addEventListener(props.id + '-do-reset', () => {
             this.reset();
         });
+
+        let root = document.querySelector(':root');
+        root.style.setProperty("--cube-n", this.props.size);
 
         // 6 faced cube
         //   each face is cube size rows
@@ -520,7 +521,7 @@ class Cube extends React.Component {
 
         let moveList = [];
 
-        for (let i = 0; i < 2; ++i) {
+        for (let i = 0; i < Math.pow(this.props.size, 3); ++i) {
             // prevent same face
             // temp
             faceIndex = (Math.floor(5 * Math.random()));

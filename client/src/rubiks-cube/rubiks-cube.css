@@ -1,6 +1,6 @@
 :root {
     /* cube properties */
-    --cube-width: 3;
+    --cube-n: 3;
     --cube-face-size: 7em; 
     --cube-grid-gap: 0.1em;
 }
@@ -17,6 +17,8 @@
     gap: var(--cube-grid-gap); /* always leave enough space to see the lines*/
 
     /* align-content: center; /* umm */
+    grid-template-columns: repeat(var(--cube-n), 1fr);
+    grid-template-rows: repeat(var(--cube-n), 1fr);
 
     border-radius: 0.5em;
     /* if contents of the div overflow, hide them */
@@ -37,6 +39,7 @@
 
 .cube-grid {
     
+    /* a grid of square faces: grid of grids*/
     display: grid;
     gap: var(--cube-grid-gap);
 
@@ -47,7 +50,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
 
-    width: calc(var(--cube-width) * var(--cube-face-size) + (var(--cube-width) - 1) * var(--cube-grid-gap));
+    width: calc(3 * var(--cube-face-size) + 2 * var(--cube-grid-gap));
     
     padding: 2em;
 
