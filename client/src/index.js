@@ -11,8 +11,10 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <>
-        <CubeWidget />
-        <LeaderBoard />
+        <div className="container">
+            <CubeWidget />
+            <LeaderBoard />
+        </div>
     </>
 
 );
