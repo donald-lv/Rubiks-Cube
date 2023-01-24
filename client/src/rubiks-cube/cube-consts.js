@@ -2,16 +2,27 @@
 const consts = {
     defaultCubeSize: 3,
 
+    // ordered according to respective numbers
+    /*
+          +-+
+          |0|
+        +-+-+-+
+        |1|2|3|
+        +-+-+-+
+          |4|
+          +-+
+          |5|
+          +-+
+    */
     defaultColors: [
-        "#eae032", // yellow
-        "#F82039", // red
-        "#00E05F", // green
-        
-        "#FFA810",  //orange
-        "#D0D0E0", // white
         "#0068F0", // blue
 
-        "#000000", // black
+        "#F82039", // red
+        "#eae032", // yellow
+        "#FFA810",  //orange
+
+        "#00E05F", // green
+        "#D0D0E0", // white
     ],
 
     /* 
@@ -43,10 +54,6 @@ const consts = {
         
         [{ face: 2, orient: 2 }, { face: 3, orient: 2 }, { face: 5, orient: 0 }, { face: 1, orient: 2 }],
         [{ face: 4, orient: 2 }, { face: 3, orient: 1 }, { face: 0, orient: 0 }, { face: 1, orient: 3 }],
-    ],
-
-    nonCenterMoves: [
-        {}
     ]
 }
 
