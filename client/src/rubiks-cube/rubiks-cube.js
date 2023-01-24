@@ -266,6 +266,7 @@ class Cube extends React.Component {
             this.reset();
         });
 
+        // change the css variable that styles based on how large the cube is
         let root = document.querySelector(':root');
         root.style.setProperty("--cube-n", this.props.size);
 
