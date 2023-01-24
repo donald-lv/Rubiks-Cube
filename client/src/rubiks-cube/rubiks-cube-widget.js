@@ -3,6 +3,8 @@ import './rubiks-cube.js';
 import Cube from './rubiks-cube.js';
 import Timer from './timer.js';
 
+import './rubiks-cube-widget.css';
+
 function CubeWidget(props) {
     const [ timerReady, setTimerReady ] = useState(false);
     const [ isSolving, setIsSolving ] = useState(false);
@@ -104,34 +106,41 @@ function CubeWidget(props) {
 
     return (
         <div className="rubiks-cube-widget">
-            <div className="widget-buttons">
-                <button className="widget-button" id={ shuffleId }
-                    onClick = { 
-                        () => {
-                            const event = new CustomEvent(cubeId + '-do-shuffle');
-                            document.dispatchEvent(event);
-                        }
-                    } >
-                    shuffle
-                </button>
-
-                <button className="widget-button" id={ resetId }
-                    onClick = {
-                        () => {
-                            const event = new CustomEvent(cubeId + '-do-reset');
-                            document.dispatchEvent(event);
-                        }
-                    } >
-                    reset
-                </button>
-               
+            <div className='rubiks-cube-widget-card rubiks-cube-widget-cube-card'>
+                <Cube id={ cubeId } size={ 3 } />
             </div>
 
-            <Cube id={ cubeId } size={ 4 } />
+            <div className='rubiks-cube-widget-timer rubiks-cube-widget-card'>
+                <Timer 
+                    id={ timerId }
+                />
+            </div>
+
+            <div className='rubiks-cube-widget-buttons rubiks-cube-widget-card'>
+                <div>
+                    <button className="widget-button" id={ shuffleId }
+                        onClick = { 
+                            () => {
+                                const event = new CustomEvent(cubeId + '-do-shuffle');
+                                document.dispatchEvent(event);
+                            }
+                        } >
+                        shuffle
+                    </button>
+
+                    <button className="widget-button" id={ resetId }
+                        onClick = {
+                            () => {
+                                const event = new CustomEvent(cubeId + '-do-reset');
+                                document.dispatchEvent(event);
+                            }
+                        } >
+                        reset
+                    </button>
+                </div>
+               
+            </div>
             
-            <Timer 
-                id={ timerId }
-            />
         </div>
     );
 }
