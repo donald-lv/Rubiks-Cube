@@ -1,6 +1,6 @@
 .rubiks-cube-widget {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr max-content;
     grid-template-rows: 3fr 2fr;
 
     width: 100%;
@@ -41,6 +41,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    margin: 10px;
 }
 
 .rubiks-cube-widget-buttons {
