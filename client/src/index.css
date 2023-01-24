@@ -59,6 +59,11 @@ th {
 .container{
     display: flex;
     flex-direction: column;
-    padding-left: 15%;
-    padding-right: 15%;
+}
+
+@media only screen and (min-aspect-ratio: 3 / 2) {
+    .container{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 }
