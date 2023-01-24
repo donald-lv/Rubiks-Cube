@@ -2,14 +2,15 @@
     /* cube properties */
     --cube-n: 3;
     --cube-face-size: 7em; 
-    --cube-grid-gap: 0.1em;
+    --cube-grid-gap: 0.1vw;
 }
 
-
 .cube-square {
+    /* bg color given is inline */
     user-select: inherit;
     --moz-user-select: inherit;
     --webkit-user-select: inherit;
+    aspect-ratio: 1;
 }
 
 .cube-face {
@@ -20,43 +21,43 @@
     grid-template-columns: repeat(var(--cube-n), 1fr);
     grid-template-rows: repeat(var(--cube-n), 1fr);
 
-    border-radius: 0.5em;
+    border-radius: 1vw;
     /* if contents of the div overflow, hide them */
     overflow: hidden;
 
     background-color: #000000;
-    /* padding: 10px; */
-    
-    
-    width: var(--cube-face-size);
-    
-    aspect-ratio: 1;
 
+    width: 100%;
+    max-height: 100%;
+    
     user-select: inherit;
     --moz-user-select: inherit;
     --webkit-user-select: inherit;
 }
 
 .cube-grid {
-    
+
     /* a grid of square faces: grid of grids*/
     display: grid;
     gap: var(--cube-grid-gap);
 
-    margin: auto;
-    border-radius: 3em;
-    background-color: var(--sub-bg-color);
+    /*margin: auto;*/
+
 
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
 
-    width: calc(3 * var(--cube-face-size) + 2 * var(--cube-grid-gap));
+    padding: 1vw;    
+    aspect-ratio: 3 / 4;
+
+    max-height: 100%;
+    max-width: 100%;
+
     
-    padding: 2em;
+    /* this will be slightly taller than the cube if gap is not zero. */
 
     user-select: none;
     --moz-user-select: none;
     --webkit-user-select: none;
 }
-
 
