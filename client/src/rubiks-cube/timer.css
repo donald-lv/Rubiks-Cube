@@ -1,11 +1,17 @@
-h1.unset-timer {
+
+.unset-timer-text {
     color: gray;
 }
 
-h1.running-timer {
+.running-timer-text {
     color: var(--complement-color);
 }
 
-h1.finished-timer {
+.finished-timer-text {
     color: var(--highlight-color);
+}
+
+.timer-text {
+    font-size: 3em;
+    margin: auto;
 }

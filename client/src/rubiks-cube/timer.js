@@ -78,9 +78,11 @@ class Timer extends React.Component {
 
     render () {
         return (
-            <h1 className={ this.state.status + '-timer' }> {
-                this.getTimeValue()
-            } </h1>
+            <div className='timer-container'>
+                <h1 className={ this.state.status + '-timer-text timer-text' }> 
+                    { this.getTimeValue() } 
+                </h1>
+            </div>
         );
     }
 }
