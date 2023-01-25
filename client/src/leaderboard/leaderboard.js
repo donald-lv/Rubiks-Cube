@@ -61,7 +61,6 @@ function LeaderBoard(props) {
                 </thead>
                 <tbody>
                     {
-                        
                         rows.map( (item, index) => { return (
                             <tr key={ index }>
                                 <td>{ index + 1 }</td>
