@@ -3,23 +3,24 @@
     --sub-bg-color: #032d4a;
 
     --highlight-color: #5cffbe;
-    --sub-hightlight-color: #3c9c66;
+    --sub-highlight-color: #1a934f;
     
-    --complement-color: #ffa220;
-    --sub-complement-color: #c36f01;
+    --complement-color: #f08c00;
+    --sub-complement-color: #ce6400;
 
     --fg-color: #FFFFFF;
+    --sub-fg-color: #888888;
+
+    --mid-color: #005e57;
 
 
     /* --normal-text-font: ; */
-
     background-color: var(--bg-color);
     color: var(--fg-color);
 }
 
-
 ::selection {
-    background-color: var( --sub-hightlight-color);
+    background-color: var( --sub-highlight-color);
     color: white;
 }
 
@@ -43,14 +44,29 @@ table, thead {
 }
 
 table {
-
     width: 100%;
-    
     border-collapse: collapse;
 }
 
 th {
     text-align: left;
+}
+
+button {
+    font-size: 1em;
+    font-weight: 600;
+
+    color: var(--fg-color);
+    background-color: var(--sub-bg-color);
+
+    border-style: hidden;
+    border-radius: 5px;
+
+    padding: 8px 16px;
+}
+
+button:hover {
+    background-color: var(--mid-color);
 }
 
 
