@@ -29,7 +29,7 @@ class Timer extends React.Component {
 
             this.state.intervalId = setInterval(() => {
                 this.setState({ endTime: Date.now() });
-            }, 10);
+            }, 50);
 
             const event = new CustomEvent(props.id + '-start');
             document.dispatchEvent(event);

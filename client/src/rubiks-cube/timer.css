@@ -1,6 +1,6 @@
 
 .unset-timer-text {
-    color: gray;
+    color: var(--sub-fg-color);
 }
 
 .running-timer-text {
