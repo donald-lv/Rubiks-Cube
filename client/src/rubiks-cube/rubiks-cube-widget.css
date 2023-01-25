@@ -9,14 +9,14 @@
     gap: 1px;   
 }
 
-@media only screen and (min-aspect-ratio: 2 / 3) {
+@media only screen and (min-aspect-ratio: 1 / 1) {
     .rubiks-cube-widget {
         margin-top: 10vh;
         margin-bottom: 10vh;
     }
 }
 
-@media only screen and (max-aspect-ratio: 2 / 3) {
+@media only screen and (max-aspect-ratio: 1 / 1) {
     .rubiks-cube-widget {
         display: grid;
         grid-template-columns: 1fr;
@@ -40,12 +40,23 @@
 .rubiks-cube-widget-timer {
     display: flex;
     align-items: flex-end;
-    justify-content: center;
-    margin: 10px;
+    justify-content: flex-end;
+    width: 200px;
+    margin: 0px 0px 0px 0px;
 }
 
 .rubiks-cube-widget-buttons {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.shuffle-button {
+    color: var(--highlight-color);
+    border-radius: 5px 0 0 5px;
+}
+
+.reset-button {
+    color: var(--complement-color);
+    border-radius: 0 5px 5px 0;
 }

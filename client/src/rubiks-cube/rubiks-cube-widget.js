@@ -118,7 +118,7 @@ function CubeWidget(props) {
 
             <div className='rubiks-cube-widget-buttons rubiks-cube-widget-card'>
                 <div>
-                    <button className="widget-button" id={ shuffleId }
+                    <button className='widget-button shuffle-button' id={ shuffleId }
                         onClick = { 
                             () => {
                                 const event = new CustomEvent(cubeId + '-do-shuffle');
@@ -128,7 +128,7 @@ function CubeWidget(props) {
                         shuffle
                     </button>
 
-                    <button className="widget-button" id={ resetId }
+                    <button className='widget-button reset-button' id={ resetId }
                         onClick = {
                             () => {
                                 const event = new CustomEvent(cubeId + '-do-reset');
