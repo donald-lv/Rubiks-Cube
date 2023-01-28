@@ -50,6 +50,7 @@ function LeaderBoard(props) {
 
     return(
         <div className="leaderboard-container">
+            <h3 className='leaderboard-header'>Leaderboard</h3>
             <table className="leaderboard-table">
                 <thead>
                     <tr>

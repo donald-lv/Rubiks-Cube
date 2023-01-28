@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useCallback } from 'react';
-import './rubiks-cube.js';
-import Cube from './rubiks-cube.js';
-import Timer from './timer.js';
+import './cube/rubiks-cube.js';
+import Cube from './cube/rubiks-cube.js';
+import Timer from './timer/timer.js';
 
 import './rubiks-cube-widget.css';
 
@@ -105,6 +106,7 @@ function CubeWidget(props) {
 
 
     return (
+        <>
         <div className="rubiks-cube-widget">
             <div className='rubiks-cube-widget-card rubiks-cube-widget-cube-card'>
                 <Cube id={ cubeId } size={ 3 } />
@@ -142,6 +144,7 @@ function CubeWidget(props) {
             </div>
             
         </div>
+        </>
     );
 }
 

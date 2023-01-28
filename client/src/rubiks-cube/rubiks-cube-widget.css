@@ -11,8 +11,8 @@
 
 @media only screen and (min-aspect-ratio: 1 / 1) {
     .rubiks-cube-widget {
-        margin-top: 10vh;
-        margin-bottom: 10vh;
+        margin-top: 7.5vh;
+        margin-bottom: 7.5vh;
     }
 }
 
@@ -22,7 +22,7 @@
         grid-template-columns: 1fr;
         grid-template-rows: 5fr 0fr 1fr 1fr;
 
-        margin-bottom: 20vh;
+        margin-bottom: 15vh;
     }
 }
 
@@ -33,7 +33,7 @@
     grid-row: span 2 / auto;
     height: 100%;
 
-    border-radius: 4vw;
+    border-radius: var(--block-border-radius);
     background-color: var(--sub-bg-color);
 }
 

@@ -1,0 +1,25 @@
+{
+    "defaultCubeSize": 3,
+    "defaultColors": [
+        "#0068F0",
+
+        "#F82039",
+        "#eae032",
+        "#FFA810",
+
+        "#00E05F",
+        "#D0D0E0"
+    ],
+
+    "cubeInfo": [
+
+        [{ "face": 5, "orient": 2 }, { "face": 3, "orient": 0 }, { "face": 2, "orient": 0 }, { "face": 1, "orient": 0 }],
+        [{ "face": 0, "orient": 3 }, { "face": 2, "orient": 3 }, { "face": 4, "orient": 3 }, { "face": 5, "orient": 3 }],
+        
+        [{ "face": 0, "orient": 2 }, { "face": 3, "orient": 3 }, { "face": 4, "orient": 0 }, { "face": 1, "orient": 1 }],
+        [{ "face": 0, "orient": 1 }, { "face": 5, "orient": 1 }, { "face": 4, "orient": 1 }, { "face": 2, "orient": 1 }],
+        
+        [{ "face": 2, "orient": 2 }, { "face": 3, "orient": 2 }, { "face": 5, "orient": 0 }, { "face": 1, "orient": 2 }],
+        [{ "face": 4, "orient": 2 }, { "face": 3, "orient": 1 }, { "face": 0, "orient": 0 }, { "face": 1, "orient": 3 }]
+    ]
+}

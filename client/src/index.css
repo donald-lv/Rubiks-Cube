@@ -13,6 +13,7 @@
 
     --mid-color: #005e57;
 
+    --block-border-radius: 4vw;
 
     /* --normal-text-font: ; */
     background-color: var(--bg-color);

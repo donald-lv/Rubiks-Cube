@@ -1,0 +1,12 @@
+.leaderboard-container {
+    border-radius: var(--block-border-radius) var(--block-border-radius) 0 0;
+    background-color: var(--sub-bg-color);
+    
+    padding-bottom: var(--block-border-radius);
+    padding-right: calc(var(--block-border-radius) / 4);
+    padding-left: calc(var(--block-border-radius) / 4);
+}
+
+.leaderboard-header {
+    text-align: center;
+}

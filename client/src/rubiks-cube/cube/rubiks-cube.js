@@ -1,6 +1,6 @@
 import React from 'react';
 import './rubiks-cube.css';
-import CubeConsts from './cube-consts';
+import CubeConsts from './cube-consts.json'
 
 /* 
 ABOUT DIRECTIONS:
