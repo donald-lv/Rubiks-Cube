@@ -1,5 +1,5 @@
 @keyframes test {
-    from { background-color: var(--highlight-color); }
+    from { background-color: var(--complement-color); }
     to { background-color: auto; }
 }
 
