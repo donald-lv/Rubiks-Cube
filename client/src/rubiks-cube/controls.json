@@ -1,0 +1,26 @@
+{
+    "bindings": [
+        { "keys": ["r"], "detail": { "face": 4, "depth": 0, "direction": 1 } },
+        { "keys": ["e"], "detail": { "face": 4, "depth": 1, "direction": 1 } },
+        { "keys": ["w"], "detail": { "face": 4, "depth": 2, "direction": 1 } },
+
+        { "keys": ["s"], "detail": { "face": 2, "depth": 2, "direction": 3 } },
+        { "keys": ["d"], "detail": { "face": 4, "depth": 1, "direction": 0 } },
+        { "keys": ["f"], "detail": { "face": 2, "depth": 0, "direction": 3 } },
+        
+        { "keys": ["v"], "detail": { "face": 4, "depth": 0, "direction": 0 } },
+        { "keys": ["c"], "detail": { "face": 4, "depth": 2, "direction": 2 } },
+
+
+        { "keys": ["u"], "detail": { "face": 4, "depth": 2, "direction": 3 } },
+        { "keys": ["i"], "detail": { "face": 4, "depth": 1, "direction": 3 } },
+        { "keys": ["o"], "detail": { "face": 4, "depth": 0, "direction": 3 } },
+
+        { "keys": ["j"], "detail": { "face": 2, "depth": 2, "direction": 1 } },
+        { "keys": ["k"], "detail": { "face": 4, "depth": 1, "direction": 0 } },
+        { "keys": ["l"], "detail": { "face": 2, "depth": 0, "direction": 1 } },
+
+        { "keys": ["n"], "detail": { "face": 4, "depth": 2, "direction": 0 } },
+        { "keys": ["m"], "detail": { "face": 4, "depth": 0, "direction": 2 } }
+    ]
+}
