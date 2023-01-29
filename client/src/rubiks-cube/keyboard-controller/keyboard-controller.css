@@ -1,3 +1,22 @@
-div :onhover {
-    background-color: blue;
+@keyframes test {
+    from { background-color: var(--highlight-color); }
+    to { background-color: auto; }
+}
+
+.keyboard-tester {
+    display: flex;
+}
+
+.keyboard-tester-card {
+    background-color: var(--fg-color);
+    padding: 2px;
+    gap: 2px;
+    height: 20px;
+    width: 100%;
+}
+
+.keyboard-tester-card-pulse {
+    animation-name: test;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
 }
