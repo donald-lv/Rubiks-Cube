@@ -4,9 +4,9 @@
         { "keys": ["e"], "detail": { "face": 4, "depth": 1, "direction": 1 } },
         { "keys": ["w"], "detail": { "face": 4, "depth": 2, "direction": 1 } },
 
-        { "keys": ["s"], "detail": { "face": 2, "depth": 2, "direction": 3 } },
-        { "keys": ["d"], "detail": { "face": 4, "depth": 1, "direction": 0 } },
         { "keys": ["f"], "detail": { "face": 2, "depth": 0, "direction": 3 } },
+        { "keys": ["d"], "detail": { "face": 4, "depth": 1, "direction": 0 } },
+        { "keys": ["s"], "detail": { "face": 2, "depth": 2, "direction": 3 } },
         
         { "keys": ["v"], "detail": { "face": 4, "depth": 0, "direction": 0 } },
         { "keys": ["c"], "detail": { "face": 4, "depth": 2, "direction": 2 } },
