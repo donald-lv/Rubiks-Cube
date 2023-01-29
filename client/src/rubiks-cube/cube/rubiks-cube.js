@@ -159,8 +159,8 @@ class CubeGrid extends React.Component {
                         break;
                 }
 
-                this.props.doRotate(this.state.holdCoords.face, depth, direction);
-                this.props.doSendCubeTouched();
+                this.props.userRotate(this.state.holdCoords.face, depth, direction);
+                
             } else {
                 console.log("no rotation");
             }
@@ -230,7 +230,7 @@ class CubeGrid extends React.Component {
     }
 }
 
-// this function is outside Cube
+// this function is outside Cube on purpose
 function genDefaultCube(size) {
     // 6 faced cube
     //   each face is 3 rows
@@ -265,6 +265,11 @@ class Cube extends React.Component {
         document.addEventListener(props.id + '-do-reset', () => {
             this.reset();
         });
+
+        document.addEventListener(props.id + '-do-rotate', (e) => {
+            const { face, depth, direction } = e.detail;
+            this.userRotate(face, depth, direction);
+        })
 
         // change the css variable that styles based on how large the cube is
         let root = document.querySelector(':root');
@@ -504,6 +509,11 @@ class Cube extends React.Component {
         );
     }
 
+    userRotate(faceIndex, depth, direction) {
+        this.doRotate(faceIndex, depth, direction);
+        this.doSendCubeTouched();
+    }
+
     sendEvent(eventName) {
         const event = new CustomEvent(eventName, { details: { id: this.props.id } });
         document.dispatchEvent(event);
@@ -573,8 +583,7 @@ class Cube extends React.Component {
         return <CubeGrid 
             size={ this.props.size }
             cube={ this.state.cube } 
-            doRotate={ (faceIndex, depth, direction) => { this.doRotate(faceIndex, depth, direction) } }
-            doSendCubeTouched={ () => { this.doSendCubeTouched(); } } />;
+            userRotate={ (faceIndex, depth, direction) => { this.userRotate(faceIndex, depth, direction) } } />;
     }
 }
 
