@@ -26,20 +26,24 @@ class KeyboardController extends React.Component {
         super(props);
 
         this.state = {
+            bindingsHeld: this.props.bindings.map(() => false),
             keysHeld: new Set()
         };
+        
+        console.log(this.state.bindingsHeld);
 
         document.addEventListener('keydown', (e) => {
             let newKeysHeld = this.state.keysHeld;
             newKeysHeld.add(e.key);
             this.setState({ keysHeld: newKeysHeld });
-            this.checkKeys();
+            this.checkKeyDown();
         });
 
         document.addEventListener('keyup', (e) => {
             let newKeysHeld = this.state.keysHeld;
             newKeysHeld.delete(e.key);
             this.setState({ keysHeld: newKeysHeld });
+            this.checkKeyUp();
         });
     }
 
@@ -52,14 +56,36 @@ class KeyboardController extends React.Component {
         return true;
     }
 
-    checkKeys() {
-        for (const binding of this.props.bindings) {
-            if (this.keysAreHeld(this.state.keysHeld, binding.keys)) {
-                console.log(binding.detail);
-                const e = new CustomEvent(this.props.id + '-bind-pressed', { detail: binding.detail });
-                document.dispatchEvent(e);
+    checkKeyDown() {
+        const newBindingsHeld = this.state.bindingsHeld;
+        this.props.bindings.forEach(
+            (binding, index) => {
+                console.log(this.state.bindingsHeld[index]);
+                if (!this.state.bindingsHeld[index] && this.keysAreHeld(this.state.keysHeld, binding.keys)) {
+                    newBindingsHeld[index] = true;
+
+                    const e = new CustomEvent(this.props.id + '-bind-pressed', { detail: binding.detail });
+                    document.dispatchEvent(e);
+                }
             }
-        }
+        );
+
+        this.setState({ bindingsHeld: newBindingsHeld });
+    }
+
+    checkKeyUp() {
+        const newBindingsHeld = this.state.bindingsHeld;
+
+        this.props.bindings.forEach(
+            (binding, index) => {
+                console.log(this.state.bindingsHeld[index]);
+                if (this.state.bindingsHeld[index] && !this.keysAreHeld(this.state.keysHeld, binding.keys)) {
+                    newBindingsHeld[index] = false;
+                }
+            }
+        );
+
+        this.setState({ bindingsHeld: newBindingsHeld });
     }
 
     render () {
