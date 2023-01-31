@@ -525,6 +525,7 @@ class Cube extends React.Component {
     }
 
     shuffle() {
+        this.reset();
         let newCube = this.state.cube;
         // newCube[0] = 
         let faceIndex, depth, direction = 0;
